@@ -1,0 +1,1 @@
+json.extract! @listing, :id, :title, :time, :date, :seats, :price, :venue_name, :location, :additional_info, :projector, :cables, :laptops, :seating, :blinds, :lighting, :camcorder, :catering, :toilets, :fire, :internet, :created_at, :updated_at
