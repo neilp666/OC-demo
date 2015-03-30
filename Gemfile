@@ -27,4 +27,6 @@ group :development, :test do
 end
 
 gem 'dotenv-rails', groups: [:development]
+gem 'aws-sdk', '~> 1.61.0'
+
 
