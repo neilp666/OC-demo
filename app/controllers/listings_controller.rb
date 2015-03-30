@@ -1,5 +1,8 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
+
 
   # GET /listings
   # GET /listings.json
@@ -72,4 +75,10 @@ class ListingsController < ApplicationController
     def listing_params
       params.require(:listing).permit(:title, :time, :date, :seats, :price, :venue_name, :location, :additional_info, :projector, :cables, :laptops, :seating, :blinds, :lighting, :camcorder, :catering, :toilets, :fire, :internet, :image)
     end
+
+    def check_user
+      if current_user != @listing.user
+      redirect_to root_url, alert: "Sorry, this listing belongs to someone else"
+    end
+  end
 end
