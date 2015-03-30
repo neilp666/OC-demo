@@ -1,3 +1,8 @@
+
+<div class="jumbotron">
+  <h1> Welcome to Open Cinema</h1>
+</div>
+
 <div class="row">
   <% @listings.each do |listing| %>
       <div class="col-md-3">
@@ -6,16 +11,9 @@
           <div class= "caption">
               <h3><%= listing.title %></h3>
               <h3><%= listing.user.name %></h3>
-              <p><%= number_to_currency(listing.price) %></p>
-              <p><%= listing.time %></p>
-              <p><%= listing.date %></p>
-              <p><%= listing.venue_name %></p>
-              <p><%= listing.location %></p>
-              
-              <% if (user_signed_in?) && (current_user == listing.user) %>
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
-              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
-              <% end %>
+              <p>Ticket Price: <%= number_to_currency(listing.price) %></p>
+              <p>Time:<%= listing.time %> & Date <%= listing.date %></p>
+              <p>Location: <%= listing.location %></p>
           </div>
         </div>
       </div>
