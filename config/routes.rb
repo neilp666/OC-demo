@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
 
 
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root 'listings#index'
 
   get 'seller' => "listings#seller"
+  get 'purchases'=> "orders#purchases"
+  get 'sales' => "orders#sales"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
