@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
-    
+
 
     respond_to do |format|
       if @order.save
@@ -40,7 +40,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  
 
   private
     def set_order
