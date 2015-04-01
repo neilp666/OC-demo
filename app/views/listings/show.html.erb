@@ -28,9 +28,9 @@
     <p>Venue Name: <%= @listing.venue_name %></p>
     <p>Location: <%= @listing.location %></p>
     <p>Any Additional Information: <%= @listing.additional_info %></p>
-
-
-
+    <div class="center">
+      <%= link_to "Buy It Now", new_listing_order_path(@listing), class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
 
