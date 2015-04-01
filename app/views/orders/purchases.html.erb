@@ -14,7 +14,7 @@
   <% @orders.each do |order| %>
     <tr>
       <td class="center"><%= image_tag order.listing.image.url(:thumb) %></td>
-      <td class="center"><%= order.title.name %></td>
+      <td class="center"><%= order.listing.title %></td>
       <td class="center"><%= number_to_currency(order.listing.price) %></td>
       <td class="center"><%= order.seller.name %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>

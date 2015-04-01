@@ -29,4 +29,6 @@ end
 gem 'dotenv-rails', groups: [:development]
 gem 'aws-sdk', '~> 1.61.0'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
