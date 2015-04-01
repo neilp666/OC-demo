@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-
   def sales
     @orders = Order.all.where(seller: current_user).order("created_at DESC")
   end
@@ -13,13 +12,11 @@ class OrdersController < ApplicationController
 
   respond_to :html
 
-
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
     respond_with(@order)
   end
-
 
   def create
     @order = Order.new(order_params)
@@ -39,7 +36,6 @@ class OrdersController < ApplicationController
       end
     end
   end
-
 
   private
     def set_order
