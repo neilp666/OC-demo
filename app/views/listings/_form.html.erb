@@ -21,6 +21,10 @@
     <%= f.text_field :time, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :tickets %>
+    <%= f.text_field :tickets, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :date %>
     <%= f.text_field :date, class: "form-control" %>
   </div>
@@ -58,12 +62,12 @@
     <%= f.check_box :cables, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :laptops %><br>
-    <%= f.check_box :laptops %>
+    <%= f.label :laptops %>
+    <%= f.check_box :laptops, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :seating %><br>
-    <%= f.check_box :seating %>
+    <%= f.label :seating %>
+    <%= f.check_box :seating, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :blinds %><br>

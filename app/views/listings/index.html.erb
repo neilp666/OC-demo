@@ -14,6 +14,7 @@
               <p>Ticket Price: <%= number_to_currency(listing.price) %></p>
               <p>Time:<%= listing.time %> & Date <%= listing.date %></p>
               <p>Location: <%= listing.location %></p>
+              <p><%= print_tickets(listing.tickets) %></p>
           </div>
         </div>
       </div>
@@ -24,3 +25,6 @@
 <% if user_signed_in? %>
   <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
 <% end %>
+
+
+        
