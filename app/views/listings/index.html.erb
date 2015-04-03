@@ -1,25 +1,41 @@
 
-<div class="jumbotron">
-  <h1> Welcome to Open Cinema</h1>
+
+<div class="page-header">
+  <h1>Open Cinema  <small></small></h1>
 </div>
 
+
 <div class="row">
-  <% @listings.each do |listing| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-           <%= link_to image_tag(listing.image.url), listing %>
-          <div class= "caption">
-              <h3><%= listing.title %></h3>
-              <h3><%= listing.user.name %></h3>
-              <p>Ticket Price: <%= number_to_currency(listing.price) %></p>
-              <p>Time:<%= listing.time %> & Date <%= listing.date %></p>
-              <p>Location: <%= listing.location %></p>
-              <p><%= print_tickets(listing.tickets) %></p>
-          </div>
-        </div>
+ 
+  <div class="col-md-6">
+    <div class="thumbnail">
+      <% @listings.each do |listing| %>
+      <%= link_to image_tag(listing.image.url), listing %>
+    </div>
+
+
+  <div class="col-md-6">
+      <div class="caption">
+        <h2>Venue Name: <%= listing.venue_name %></h2>
+        <h3>Next Screening: <%= listing.title %> <i class="fa fa-film"></i></h3>
+        <h3>Venue Manager: <%= listing.user.name %></h3>
+        <h3><b><i class="fa fa-clock-o"></i><%= listing.time %> | <i class="fa fa-calendar"></i> <%= listing.date %> | <i class="fa fa-ticket"></i><%= number_to_currency(listing.price, unit: "£") %></b></h3>
+       
+        <h3><%= print_tickets(listing.tickets) %></h3>
+
+
+  
+
+
+        <p><%= link_to 'I WANT THIS!', new_listing_path, class: "btn btn-danger btn-block" %>
+        <p><%= link_to 'GET DETAILS', listing, class: "btn btn-primary btn-block" %> 
       </div>
+  </div>
   <% end %>
 </div>
+
+
+
 
 <br>
 <% if user_signed_in? %>
@@ -27,4 +43,4 @@
 <% end %>
 
 
-        
+
