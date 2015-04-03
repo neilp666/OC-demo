@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :listings do
-    resources :orders, only: [:new, :create]
+    resources :charges, only: [:create]
   end
 
+  resources :charges, only: [:show]
 
   get 'pages/about'
   get 'pages/contact'

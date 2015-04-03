@@ -19,19 +19,30 @@
         <h2>Venue Name: <%= listing.venue_name %></h2>
         <h3>Next Screening: <%= listing.title %> <i class="fa fa-film"></i></h3>
         <h3>Venue Manager: <%= listing.user.name %></h3>
-        <h3><b><i class="fa fa-clock-o"></i><%= listing.time %> | <i class="fa fa-calendar"></i> <%= listing.date %> | <i class="fa fa-ticket"></i><%= number_to_currency(listing.price, unit: "£") %></b></h3>
+        <h3><b><i class="fa fa-clock-o"></i><%= listing.time %>  <i class="fa fa-calendar"></i> <%= listing.date %> <i class="fa fa-ticket"></i><%= number_to_currency(listing.price, unit: "£") %></b></h3>
        
         <h3><%= print_tickets(listing.tickets) %></h3>
 
+        <p>
+          <%-if user_signed_in? %>
+            <%= form_tag  listing_charges_path(listing) do %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= listing.title %>"
+            data-amount="<%= listing.price_in_pence %>"
+            data-email="<%= current_user.email %>"> </script>
+            <% end %>
 
-  
+          <% else %>
 
+          <%= link_to 'I WANT THIS!', listing_charges_path(listing), method: :post, class: "btn btn-danger btn-block" %>
 
-        <p><%= link_to 'I WANT THIS!', new_listing_path, class: "btn btn-danger btn-block" %>
-        <p><%= link_to 'GET DETAILS', listing, class: "btn btn-primary btn-block" %> 
+          <% end %>
+
+          <p><%= link_to 'GET DETAILS', listing, class: "btn btn-primary btn-block" %></p>
       </div>
   </div>
-  <% end %>
+<% end %>
 </div>
 
 

@@ -7,10 +7,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
-gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -24,9 +22,12 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'dotenv-rails'
+  gem 'spring'
+  gem 'byebug'
 end
 
-gem 'dotenv-rails', groups: [:development]
+
 gem 'aws-sdk', '~> 1.61.0'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

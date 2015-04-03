@@ -6,4 +6,13 @@ class Listing < ActiveRecord::Base
 
   belongs_to :user
   has_many :orders
+
+  def price_in_pence
+    price * 100
+  end
+
+  def buy_ticket(user,stripe_id)
+    user.charges.create listing:self,amount:price_in_pence,stripe_id:stripe_id
+  end
+
 end
