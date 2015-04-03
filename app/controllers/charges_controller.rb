@@ -1,7 +1,6 @@
 class ChargesController < ApplicationController
+
   before_action :authenticate_user!
-
-
 
   def create
     new_charge.save
@@ -10,7 +9,10 @@ class ChargesController < ApplicationController
   rescue Stripe::CardError=>e 
   redirect_to listings_path, error:e.message
 
+   after_create :email_purchaser
+
   end
+
 
 
   def show
@@ -27,5 +29,9 @@ private
   def listing
     @listing ||= Listing.find(params[:listing_id])
   end
+
+  def email_purchaser
+   PurchaseMailer.purchase_receipt(self).deliver
+end
 
 end

@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise'
+gem 'letter_opener', group: :development
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
