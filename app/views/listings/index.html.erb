@@ -12,7 +12,7 @@
       <% @listings.each do |listing| %>
       <%= link_to image_tag(listing.image.url), listing %>
     </div>
-
+  </div>
 
   <div class="col-md-6">
       <div class="caption">
@@ -39,7 +39,7 @@
 
           <% end %>
 
-          <p><%= link_to 'GET DETAILS', listing, class: "btn btn-primary btn-block" %></p>
+          
       </div>
   </div>
 <% end %>
